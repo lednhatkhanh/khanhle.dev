@@ -5,15 +5,17 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-import "normalize.css/normalize.css"
+import 'normalize.css/normalize.css';
 
-import { Header } from "~components/header"
+import { Header } from '~components/header';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children }) => (
@@ -27,27 +29,39 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={() => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
+        <Global
+          styles={css`
+            html {
+              font-size: 10px;
+            }
+            body {
+              font-family: 'Noto Sans', sans-serif;
+              font-size: 1.6rem;
+              color: #818181;
+              border-top: 5px solid #0074d9;
+            }
+          `}
+        />
+        <StyledContent>
+          <Header />
           <main>{children}</main>
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
-        </div>
+        </StyledContent>
       </>
     )}
   />
-)
+);
 
-export { Layout }
+const StyledContent = styled.div`
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 60rem;
+`;
+
+export { Layout };

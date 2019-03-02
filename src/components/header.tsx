@@ -1,43 +1,91 @@
-import { Link } from "gatsby"
-import React from "react"
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from '@emotion/styled';
+import {
+  IoLogoTwitter,
+  IoLogoFacebook,
+  IoLogoGithub,
+  IoLogoLinkedin,
+} from 'react-icons/io';
 
-type Props = {
-  siteTitle: string
-}
-
-const Header: React.FunctionComponent<Props> & {
-  defaultProps: { siteTitle: "" }
-} = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+const Header: React.FunctionComponent<{}> = () => (
+  <StyledHeader>
+    <h1 className="logo-container">
+      <Link to="/" className="logo">
+        khanhle.dev
+      </Link>
+    </h1>
+    <div className="icons">
+      <a
+        href="https://github.com/lednhatkhanh"
+        className="icon-link twitter-icon"
+      >
+        <IoLogoTwitter />
+      </a>
+      <a
+        href="https://github.com/lednhatkhanh"
+        className="icon-link facebook-icon"
+      >
+        <IoLogoFacebook />
+      </a>
+      <a
+        href="https://github.com/lednhatkhanh"
+        className="icon-link github-icon"
+      >
+        <IoLogoGithub />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/lednhatkhanh/"
+        className="icon-link linkedin-icon"
+      >
+        <IoLogoLinkedin />
+      </a>
     </div>
-  </header>
-)
+  </StyledHeader>
+);
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+const StyledHeader = styled.header`
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #ddd;
 
-export { Header }
+  .logo-container {
+    flex: 1;
+
+    .logo {
+      text-decoration: none;
+      color: #0074d9;
+    }
+  }
+
+  .icons {
+    font-size: 2.4rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 2rem;
+
+    .icon-link {
+      display: flex;
+    }
+
+    .twitter-icon {
+      color: #1aa1f1;
+    }
+
+    .facebook-icon {
+      color: #4267b2;
+    }
+
+    .github-icon {
+      color: #23292d;
+    }
+
+    .linkedin-icon {
+      color: #0077b5;
+    }
+  }
+`;
+
+export { Header };

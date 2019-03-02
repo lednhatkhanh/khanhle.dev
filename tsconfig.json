@@ -14,7 +14,8 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "paths": {
-      "~components/*": ["./components/*"]
+      "~components/*": ["./components/*"],
+      "~models/*": ["./models/*"]
     },
     "esModuleInterop": true
   }

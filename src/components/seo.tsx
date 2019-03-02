@@ -5,25 +5,25 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface MetaItem {
-  name: string
-  content: string
+  name: string;
+  content: string;
 }
 
 interface Props {
-  description: string
-  lang: string
-  meta: MetaItem[]
-  keywords: string[]
-  title: string
+  description: string;
+  lang: string;
+  meta: MetaItem[];
+  keywords: string[];
+  title: string;
 }
 
 const SEO: React.FunctionComponent<Props> & {
-  defaultProps: typeof defaultProps
+  defaultProps: typeof defaultProps;
 } = ({ description, lang, meta, keywords, title }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -36,10 +36,10 @@ const SEO: React.FunctionComponent<Props> & {
           }
         }
       }
-    `
-  )
+    `,
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
@@ -48,6 +48,12 @@ const SEO: React.FunctionComponent<Props> & {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[
+        {
+          href: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700',
+          rel: 'stylesheet',
+        },
+      ]}
       meta={[
         {
           name: `description`,
@@ -88,19 +94,19 @@ const SEO: React.FunctionComponent<Props> & {
                 name: `keywords`,
                 content: keywords.join(`, `),
               }
-            : []
+            : [],
         )
         .concat(meta)}
     />
-  )
-}
+  );
+};
 
 const defaultProps = {
   lang: `en`,
   meta: [],
   keywords: [],
-}
+};
 
-SEO.defaultProps = defaultProps
+SEO.defaultProps = defaultProps;
 
-export { SEO }
+export { SEO };

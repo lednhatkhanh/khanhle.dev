@@ -34,24 +34,30 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src/posts`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        excerpt_separator: `<!-- end -->`,
+      },
+    },
     `gatsby-plugin-typescript`,
     {
-      resolve: "gatsby-plugin-module-resolver",
+      resolve: 'gatsby-plugin-module-resolver',
       options: {
-        root: "./src",
+        root: './src',
         aliases: {
-          "~components": "./components",
+          '~components': './components',
+          '~models': './models',
           static: {
-            root: "./public", // <- will used as this alias' root dir
-            alias: "./static", // <- will become ./public/static
+            root: './public', // <- will used as this alias' root dir
+            alias: './static', // <- will become ./public/static
           },
         },
       },
     },
     `gatsby-plugin-emotion`,
   ],
-}
+};
