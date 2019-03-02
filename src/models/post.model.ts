@@ -4,10 +4,16 @@ interface Frontmatter {
   title: string;
 }
 
-interface NodeData {
+interface Fields {
+  slug: string;
+}
+
+export interface NodeData {
   id: string;
   excerpt: string;
   frontmatter: Frontmatter;
+  fields: Fields;
+  html: string;
 }
 
 export interface PostModel {

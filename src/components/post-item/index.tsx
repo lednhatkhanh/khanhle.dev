@@ -12,7 +12,7 @@ export const PostItem: React.FunctionComponent<Props> = ({ post }) => (
   <StyledPostItem>
     <span className="date">{post.node.frontmatter.date}</span>
     <h3 className="title-container">
-      <Link to={post.node.frontmatter.path} className="title">
+      <Link to={post.node.fields.slug} className="title">
         {post.node.frontmatter.title}
       </Link>
     </h3>
@@ -24,7 +24,7 @@ const StyledPostItem = styled.article`
   margin: 5rem 0;
 
   .date {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
   .title-container {
@@ -32,12 +32,13 @@ const StyledPostItem = styled.article`
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #0074d9;
-    text-decoration: none;
   }
 
   .excerpt {
     margin: 0;
+    line-height: 2.8rem;
+    font-size: 2rem;
   }
 `;

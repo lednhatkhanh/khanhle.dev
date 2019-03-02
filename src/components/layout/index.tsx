@@ -13,6 +13,7 @@ import styled from '@emotion/styled';
 import 'normalize.css/normalize.css';
 
 import { Header } from '~components/header';
+import { Footer } from '~components/footer';
 
 interface Props {
   children: React.ReactNode;
@@ -37,21 +38,20 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
               font-size: 10px;
             }
             body {
-              font-family: 'Noto Sans', sans-serif;
+              font-family: 'Source Sans Pro', sans-serif;
               font-size: 1.6rem;
               color: #818181;
               border-top: 5px solid #0074d9;
+            }
+            a {
+              text-decoration: none;
             }
           `}
         />
         <StyledContent>
           <Header />
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <Footer />
         </StyledContent>
       </>
     )}
@@ -61,7 +61,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => (
 const StyledContent = styled.div`
   padding: 4rem 2rem;
   margin: 0 auto;
-  max-width: 60rem;
+  max-width: 70rem;
 `;
 
 export { Layout };

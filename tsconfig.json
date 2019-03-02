@@ -15,7 +15,8 @@
     "baseUrl": "./src",
     "paths": {
       "~components/*": ["./components/*"],
-      "~models/*": ["./models/*"]
+      "~models/*": ["./models/*"],
+      "~templates/*": ["./templates/*"]
     },
     "esModuleInterop": true
   }

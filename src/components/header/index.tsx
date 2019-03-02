@@ -55,7 +55,6 @@ const StyledHeader = styled.header`
     flex: 1;
 
     .logo {
-      text-decoration: none;
       color: #0074d9;
     }
   }

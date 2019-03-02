@@ -50,7 +50,8 @@ const SEO: React.FunctionComponent<Props> & {
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
         {
-          href: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700',
+          href:
+            'https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro',
           rel: 'stylesheet',
         },
       ]}
