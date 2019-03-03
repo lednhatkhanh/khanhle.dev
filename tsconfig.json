@@ -18,6 +18,7 @@
       "~models/*": ["./models/*"],
       "~templates/*": ["./templates/*"]
     },
+    "skipDefaultLibCheck": true,
     "esModuleInterop": true
   }
 }
