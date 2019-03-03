@@ -1,14 +1,33 @@
 version: 2.1
 jobs:
+  setup:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - node_modules-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: node_modules-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/repo/node_modules
   build:
     docker:
       - image: circleci/node:10
     working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn install
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - node_modules-{{ checksum "yarn.lock" }}
       - run:
           name: Run lint
           command: yarn lint
@@ -18,3 +37,33 @@ jobs:
       - run:
           name: Build
           command: yarn build
+  deploy:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+        name: Restore Yarn Package Cache
+        keys:
+          - node_modules-{{ checksum "yarn.lock" }}
+      - run:
+        name: Install Now CLI
+        command: sudo npm install --global --unsafe-perm now
+      - deploy:
+        name: Deploy & Alias
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            now --token $NOW_TOKEN --local-config .now/now.json
+            now --token $NOW_TOKEN --local-config .now/now.json alias
+workflows:
+  version: 2
+  test-deploy-purge:
+    jobs:
+      - setup
+      - build:
+          requires:
+            - setup
+      - deploy:
+          requires:
+            - setup
