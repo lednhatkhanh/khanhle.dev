@@ -44,18 +44,19 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        name: Restore Yarn Package Cache
-        keys:
-          - node_modules-{{ checksum "yarn.lock" }}
+          name: Restore Yarn Package Cache
+          keys:
+            - node_modules-{{ checksum "yarn.lock" }}
       - run:
-        name: Install Now CLI
-        command: sudo npm install --global --unsafe-perm now
+          name: Install Now CLI
+          command: sudo npm install --global --unsafe-perm now
       - deploy:
-        name: Deploy & Alias
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            now --token $NOW_TOKEN --local-config .now/now.json
-            now --token $NOW_TOKEN --local-config .now/now.json alias
+          name: Deploy & Alias
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              now --token $NOW_TOKEN --local-config .now/now.json
+              now --token $NOW_TOKEN --local-config .now/now.json alias
+            fi
 workflows:
   version: 2
   test-deploy-purge:

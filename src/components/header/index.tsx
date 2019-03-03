@@ -17,26 +17,38 @@ const Header: React.FunctionComponent<{}> = () => (
     </h1>
     <div className="icons">
       <a
-        href="https://github.com/lednhatkhanh"
+        href="https://twitter.com/lednhatkhanh"
         className="icon-link twitter-icon"
+        aria-label="Twitter"
+        target="_blank"
+        rel="noopener"
       >
         <IoLogoTwitter />
       </a>
       <a
-        href="https://github.com/lednhatkhanh"
+        href="https://facebook.com/lednhatkhanh"
         className="icon-link facebook-icon"
+        aria-label="Facebook"
+        target="_blank"
+        rel="noopener"
       >
         <IoLogoFacebook />
       </a>
       <a
         href="https://github.com/lednhatkhanh"
         className="icon-link github-icon"
+        aria-label="Github"
+        target="_blank"
+        rel="noopener"
       >
         <IoLogoGithub />
       </a>
       <a
         href="https://www.linkedin.com/in/lednhatkhanh/"
         className="icon-link linkedin-icon"
+        aria-label="Linkedin"
+        target="_blank"
+        rel="noopener"
       >
         <IoLogoLinkedin />
       </a>

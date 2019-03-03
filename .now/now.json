@@ -1,5 +1,12 @@
 {
   "name": "khanhle.dev",
-  "version": 1,
-  "alias": ["khanhle.dev"]
+  "version": 2,
+  "alias": ["khanhle.dev"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
+    }
+  ]
 }
