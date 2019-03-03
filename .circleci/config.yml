@@ -53,10 +53,8 @@ jobs:
       - deploy:
           name: Deploy & Alias
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              now --token $NOW_TOKEN --local-config .now/now.json
-              now --token $NOW_TOKEN --local-config .now/now.json alias
-            fi
+            now --token $NOW_TOKEN --local-config .now/now.json
+            now --token $NOW_TOKEN --local-config .now/now.json alias
 workflows:
   version: 2
   test-deploy-purge:
@@ -68,3 +66,6 @@ workflows:
       - deploy:
           requires:
             - setup
+          filters:
+            branches:
+              only: master
