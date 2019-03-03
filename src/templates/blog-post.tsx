@@ -42,7 +42,7 @@ export const query = graphql`
 `;
 
 const StyledBlogPost = styled.article`
-  margin-top: 5rem;
+  margin: 5rem 0;
   line-height: 2.8rem;
   font-size: 2rem;
 
@@ -58,6 +58,10 @@ const StyledBlogPost = styled.article`
 
   .content {
     margin-top: 4rem;
+
+    h2 {
+      color: #000;
+    }
 
     a {
       text-decoration: none;

@@ -20,7 +20,7 @@ const IndexPage: React.FunctionComponent<Props> = ({
   },
 }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[`blog`, `developer`]} />
     <PostList posts={edges} />
   </Layout>
 );
