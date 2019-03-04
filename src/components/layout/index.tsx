@@ -10,8 +10,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import 'normalize.css/normalize.css';
-
 import { Header } from '~components/header';
 import { Footer } from '~components/footer';
 
