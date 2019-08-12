@@ -17,7 +17,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FunctionComponent<Props> = ({ children }) => (
+const Layout: React.FC<Props> = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

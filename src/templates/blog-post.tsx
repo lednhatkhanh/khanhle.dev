@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-const BlogPost: React.FunctionComponent<Props> = ({ data }) => (
+const BlogPost: React.FC<Props> = ({ data }) => (
   <Layout>
     <SEO title={data.markdownRemark.frontmatter.title} />
     <StyledBlogPost>

@@ -14,7 +14,7 @@ interface Props {
   };
 }
 
-const IndexPage: React.FunctionComponent<Props> = ({
+const IndexPage: React.FC<Props> = ({
   data: {
     allMarkdownRemark: { edges },
   },

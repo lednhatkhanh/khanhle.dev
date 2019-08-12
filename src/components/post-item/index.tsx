@@ -8,7 +8,7 @@ interface Props {
   post: PostModel;
 }
 
-export const PostItem: React.FunctionComponent<Props> = ({ post }) => (
+export const PostItem: React.FC<Props> = ({ post }) => (
   <StyledPostItem>
     <span className="date">{post.node.frontmatter.date}</span>
     <h3 className="title-container">

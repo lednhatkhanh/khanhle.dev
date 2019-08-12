@@ -22,7 +22,13 @@ interface Props {
   title: string;
 }
 
-const SEO: React.FunctionComponent<Props> & {
+const defaultProps = {
+  lang: `en`,
+  meta: [],
+  keywords: [],
+};
+
+const SEO: React.FC<Props> & {
   defaultProps: typeof defaultProps;
 } = ({ description, lang, meta, keywords, title }) => {
   const { site } = useStaticQuery(
@@ -100,12 +106,6 @@ const SEO: React.FunctionComponent<Props> & {
         .concat(meta)}
     />
   );
-};
-
-const defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
 };
 
 SEO.defaultProps = defaultProps;

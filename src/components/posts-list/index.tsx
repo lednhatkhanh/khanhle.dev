@@ -7,7 +7,9 @@ interface Props {
   posts: PostModel[];
 }
 
-export const PostList: React.FunctionComponent<Props> & {
+const defaultProps = { posts: [] };
+
+export const PostList: React.FC<Props> & {
   defaultProps: typeof defaultProps;
 } = ({ posts }) => (
   <>
@@ -16,7 +18,5 @@ export const PostList: React.FunctionComponent<Props> & {
     ))}
   </>
 );
-
-const defaultProps = { posts: [] };
 
 PostList.defaultProps = defaultProps;

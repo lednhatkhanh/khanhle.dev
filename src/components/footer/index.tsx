@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { IoIosHeart } from 'react-icons/io';
 
-export const Footer = () => (
+export const Footer: React.FC = () => (
   <StyledFooter>
     © {new Date().getFullYear()}, built with{' '}
     <IoIosHeart className="heart-icon" />

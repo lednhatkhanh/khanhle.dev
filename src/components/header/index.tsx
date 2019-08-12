@@ -8,7 +8,7 @@ import {
   IoLogoLinkedin,
 } from 'react-icons/io';
 
-const Header: React.FunctionComponent<{}> = () => (
+const Header: React.FC = () => (
   <StyledHeader>
     <h1 className="logo-container">
       <Link to="/" className="logo">
@@ -21,7 +21,7 @@ const Header: React.FunctionComponent<{}> = () => (
         className="icon-link twitter-icon"
         aria-label="Twitter"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <IoLogoTwitter />
       </a>
@@ -30,7 +30,7 @@ const Header: React.FunctionComponent<{}> = () => (
         className="icon-link facebook-icon"
         aria-label="Facebook"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <IoLogoFacebook />
       </a>
@@ -39,7 +39,7 @@ const Header: React.FunctionComponent<{}> = () => (
         className="icon-link github-icon"
         aria-label="Github"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <IoLogoGithub />
       </a>
@@ -48,7 +48,7 @@ const Header: React.FunctionComponent<{}> = () => (
         className="icon-link linkedin-icon"
         aria-label="Linkedin"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <IoLogoLinkedin />
       </a>
