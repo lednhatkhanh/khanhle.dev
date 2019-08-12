@@ -57,7 +57,7 @@ const SEO: React.FC<Props> & {
       link={[
         {
           href:
-            'https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro',
+            'https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro|Source+Serif+Pro&display=swap',
           rel: 'stylesheet',
         },
       ]}
